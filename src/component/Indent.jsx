@@ -46,7 +46,7 @@ const Indent = () => {
           
            <div className='w-full lg:border lg:border-solid lg:border-semiblack lg:border-opacity-1000'></div>
         
-  <div className=' lg:mt-[20px] lg:bg-gray-200 lg:flex lg:ml-[20px] lg:mr-[20px] '> 
+  <div className=' lg:mt-[20px] lg:bg-gray-200 lg:flex lg:ml-[20px] lg:mr-[20px]  ' style={{ overflowX: 'auto' }}> 
   <div className='lg:text-sm lg:font-semibold lg:p-2.5 lg:border lg:border-solid lg:border-black lg:border-opacity-1000 lg:w-[10%]'>
             ##
             </div>
@@ -83,6 +83,15 @@ const Indent = () => {
             
             <div className=' lg:text-sm lg:font-semibold lg:p-3 lg:border lg:border-solid lg:border-black lg:border-opacity-1000 lg:w-[20%]'>
            Bill No.
+            </div>
+            <div className=' lg:text-sm lg:font-semibold lg:p-3 lg:border lg:border-solid lg:border-black lg:border-opacity-1000 lg:w-[20%]'>
+           Bill Party Gst No.
+            </div>
+            <div className=' lg:text-sm lg:font-semibold lg:p-3 lg:border lg:border-solid lg:border-black lg:border-opacity-1000 lg:w-[20%]'>
+            Bill Party Gst Name.
+            </div>
+            <div className=' lg:text-sm lg:font-semibold lg:p-3 lg:border lg:border-solid lg:border-black lg:border-opacity-1000 lg:w-[20%]'>
+           Remark
             </div>
           </div>
           

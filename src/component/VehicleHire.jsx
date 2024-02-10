@@ -1,0 +1,674 @@
+import React, { useState } from 'react';
+import { FiAlignJustify } from "react-icons/fi";
+import { GrAdd } from "react-icons/gr";
+import { IoMdMail } from "react-icons/io";
+import { FaLock } from "react-icons/fa6";
+import { FaRegHandPointer } from "react-icons/fa6";
+import { ImBin } from "react-icons/im";
+
+const VehicleHire = () => {
+  const [trackby, setTrackby] = useState("");
+  const [startDate, setStartDate] = useState(null);
+
+  return (
+    <div className='w-screen lg:bg-gray-200 h-screen '>
+      <div className='lg:pl-[18px] lg:pt-[6px] '>
+        <div className='lg:flex lg:justify-between  '>
+        <h1 className='lg:font-bold lg:text-[20px]'>Vehicle Hire</h1>
+        <select className='lg:w-[10%]  lg:mr-[3%]  lg:border-2 lg:text-[13px]'>
+          <option>Ho-NSP </option>
+          <option>Select</option>
+        </select>
+        </div>
+
+        <div className='lg:flex  lg:justify-between'>
+  <div className='lg:flex' > 
+    <button className='lg:bg-green-600 lg:px-4 lg:py-2 lg:mr-2 lg:rounded-xl lg:border-4  lg:text-white '>Submit</button>
+    <button className='lg:bg-green-600 lg:px-4 lg:py-2 lg:rounded-xl lg:border-4 lg:text-white '>Discard</button>
+  </div>
+  <div className='lg:mr-[3%]'>
+    <button className=' lg:bg-green-600 lg:px-4 lg:py-2 lg:rounded-xl lg:border-4 lg:text-[20px] lg:text-white '><FiAlignJustify />
+</button>
+  </div>
+</div>
+        <div className="container lg:w-[98%] lg:bg-white lg:h-auto ">
+ 
+
+ 
+        <div className='lg:flex lg:font-semibold lg:justify-between lg:w-[96%] '>
+
+<div className='lg:m-1.5 lg:ml-[0.5%] lg:w-[20%]'>
+<h1>Document Type</h1> 
+<div className='lg:flex  '>
+<select className='lg:w-[100%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+</div>
+</div>
+
+
+<div className='lg:m-1.5 lg:ml-[0.5%] lg:w-[20%]   '>
+<h1>Type</h1> 
+<div className='lg:flex  '>
+<select className='lg:w-[100%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+</div>
+</div>
+
+
+
+<div className='lg:m-1.5  ' >
+<h1>Vehicle</h1>
+<input className='lg:w-[160%] lg:border lg:border-2' />
+</div>  
+
+<div className='lg:m-1.5 lg:ml-[10%]  ' >
+<h1>Load Type</h1>
+<input className='lg:w-[160%] lg:border lg:border-2' />
+</div>
+
+<div className='lg:m-1.5 lg:ml-[10%]  '>
+<h1>Post</h1>
+      <input type='checkbox' className='lg:h-[25px] lg:w-[25px]' />
+    </div>
+
+</div>
+
+          <div className='lg:flex lg:font-semibold  lg:justify-between   '>
+        
+        
+            <div className='lg:mt-1.5 lg:ml-2 '>
+              <h1> No.</h1>
+              <div className='lg:flex  '>
+              <h1 className='lg:border-2 lg:w-[30%] lg:text-[12px] lg:flex lg:items-center'>TWIHO23VP</h1>
+              <input className='lg:w-[75%] lg:border lg:border-2 lg:bg-green-400' placeholder='No.'  />              
+            </div>
+
+            </div>
+
+             <div  className='lg:m-1.5  lg:w-[25%]' >
+             <h1>Date</h1>
+              <div className='lg:flex'>
+              <input className='lg:w-[90%] lg:border lg:border-2' type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+              <input className='lg:w-[29%] lg:border lg:border-2' />
+            </div>
+            </div>
+
+      
+            <div  className='lg:m-1.5 lg:w-[48%]  ' >
+              <h1>Pay To Transporter/Owner</h1>
+              <div className='lg:flex' >
+              <select className='lg:w-[30%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+              <input className='lg:w-[98%] lg:border lg:border-2' />
+              </div>
+            </div>
+
+
+          </div>
+
+
+       <div className='lg:flex lg:font-semibold lg:justify-between lg:w-[90%] '>
+
+          <div className='lg:m-1.5 '>
+         <h1>Source</h1> 
+         <div className='lg:flex lg:w-[150%]'>
+         <input className='lg:w-[180%] lg:border lg:border-2' />
+         </div>
+        </div>
+
+
+        <div className='lg:m-1.5 lg:ml-[-25%]'>
+         <h1>Destination</h1> 
+         <div className='lg:flex lg:w-[150%]'>
+         <input className='lg:w-[206%] lg:border lg:border-2' />
+         </div>
+        </div>
+
+        <div className='lg:m-1.5 lg:ml-[-20%] ' >
+          <h1>State</h1>
+          <input className='lg:w-[160%] lg:border lg:border-2' />
+        </div>      
+
+
+        <div className='lg:m-1.5 lg:ml-[-20%] ' >
+          <h1>PAN</h1>
+          <input className='lg:w-[160%] lg:border lg:border-2' />
+        </div>  
+     
+      </div>
+
+
+
+
+      <div className='lg:flex lg:font-semibold lg:justify-between lg:w-[90%] '>
+
+<div className='lg:m-1.5 '>
+<h1>Via</h1> 
+<div className='lg:flex lg:w-[150%]'>
+<input className='lg:w-[180%] lg:border lg:border-2' />
+</div>
+</div>
+
+
+<div className='lg:m-1.5 lg:ml-[-25%]'>
+<h1>Multiple Delivery Point</h1> 
+<div className='lg:flex lg:w-[150%]'>
+<input className='lg:w-[206%] lg:border lg:border-2' />
+</div>
+</div>
+
+<div className='lg:m-1.5 lg:ml-[-20%] ' >
+<h1>Reporting</h1>
+<input className='lg:w-[160%] lg:border lg:border-2' />
+</div>      
+
+
+<div className='lg:m-1.5 lg:ml-[-20%] ' >
+<h1>Expected Delivery Date</h1>
+<input className='lg:w-[160%] lg:border lg:border-2' />
+</div>  
+
+</div>
+
+
+
+         <div className='lg:border-bold lg:border-2 lg:mt-3 lg:w-[98.5%] lg:ml-[8px]'></div>
+
+         <button className=' lg:mt-[10px] lg:text-white  lg:flex  lg:ml-[8px] lg:w-[98.5%] lg:py-2 lg:bg-green-600'>
+         <GrAdd className=' lg:ml-2 lg:mt-1' />
+         <h1 className='lg:font-semibold lg:ml-1 ' >Order Detail</h1>
+         </button>
+      
+         <button className=' lg:mt-[10px] lg:text-white  lg:flex  lg:ml-[8px] lg:w-[98.5%] lg:py-2 lg:bg-green-600'>
+         <GrAdd className=' lg:ml-2 lg:mt-1' />
+         <h1 className='lg:font-semibold lg:ml-1 ' >Sundries</h1>
+         </button>
+
+          
+          <div className='  lg:w-[98%] lg:flex  lg:justify-around'>
+
+          <div className='lg:w-[50%]'>
+            <h1 className='lg:font-bold lg:m-4'>Total</h1>
+            <div className='lg:border-bold lg:border-2 lg:mt-3 lg:w-[98.5%] lg:ml-[8px] lg:ml-4'></div>
+
+
+            <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               Inter-State
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[20%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+             
+ 
+                 <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               RCM
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[20%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+
+                 <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               Inter-Credit
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[20%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+
+             </div>
+
+
+           <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+
+
+
+
+
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Base
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             <button className='lg:bg-red-500 lg:px-2  lg:py-1'>N</button>
+             <button className='lg:bg-green-600 lg:px-2  lg:py-1'>C</button>
+
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+              Guaranted Weight
+               </h1>
+               <select className='lg:w-[98%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+
+             </div>
+             </div>
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               Kanta Weight
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[2%] '>
+               <h1>
+              Slip No.
+               </h1>
+               <input className='lg:w-[97%] lg:bg-gray-100 lg:border lg:border-2' />
+
+             </div>
+             </div>
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               Calculation On
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[2%] '>
+               <h1>
+              Capacity
+               </h1>
+               <input className='lg:w-[97%] lg:bg-gray-100 lg:border lg:border-2' />
+
+             </div>
+             </div>
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[75%]'>
+               <h1>
+               Reason For Weight Loss
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+            
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[2%] '>
+               <h1>
+              Rate Contract Rate
+               </h1>
+               <input className='lg:w-[97%] lg:bg-gray-100 lg:border lg:border-2' />
+
+             </div>
+             </div>
+             <div className=' lg:mt-[10%] lg:border-bold lg:border-2 lg:border-black lg:mt-3 lg:w-[98.5%] lg:ml-[8px]'></div>
+
+            
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               IGST
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               CGST
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+             </div>
+
+           </div>
+
+           <div className='lg:w-[50%] lg:mt-[3%]'>
+            
+            <div className='lg:border-bold lg:border-2 lg:mt-3 lg:w-[98.5%] lg:ml-[8px] lg:ml-4'></div>
+
+           <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Posting Type
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+              Posting Debit A/c
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+
+             </div>
+             </div>
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Hire Freight
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Other Charges
+               </h1>
+               <select className='lg:w-[98%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+             </div>
+             </div>
+
+
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+             <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Gross Hire Freight
+               </h1>
+               <div className='lg:flex'>
+               <h1 className='lg:bg-red-500 lg:w-[58%] lg:flex lg:justify-center lg:items-center'>Get Rate</h1>
+               <input className='lg:w-[88%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+                <div className='lg:flex'>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[8%] '>
+               <h1>
+               Gst On hire
+               </h1> 
+               <input className='lg:w-[90%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+            
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               GST On Changes
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+              </div>
+              </div>
+
+             </div>
+
+
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-2 '>
+               <h1>
+              Round Off
+               </h1>
+               <select className='lg:w-[92%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+
+             </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Total Hire
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+             </div>
+
+             <div className=' lg:mt-[10%] lg:border-bold lg:border-2 lg:border-black lg:mt-3 lg:w-[98.5%] lg:ml-[8px]'></div>
+
+             
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               SGST
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             <button className='lg:bg-red-500 lg:px-2  lg:py-1'>N</button>
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+              Cess
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             <button className='lg:bg-red-500 lg:px-2  lg:py-1'>N</button>
+             </div>
+
+             </div>
+
+             </div>
+             <h1 className='lg:mt-[8%] lg:w-full lg:font-semibold lg:text-blue-500  lg:flex lg:justify-center lg:items-center' >Incentive And Penalty Transporter Rate Contract</h1>
+
+           </div>
+
+           <div className='lg:w-[50%]'>
+            <h1 className='lg:font-bold lg:m-4'>Advance</h1>
+            <div className='lg:border-bold lg:border-2 lg:mt-3 lg:w-[98.5%] lg:ml-[8px] lg:ml-4'></div>
+
+           <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Advance Amont
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+              Card Amount
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+
+             </div>
+             </div>
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Fuel Amt.
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Advance Total
+               </h1>
+               <select className='lg:w-[98%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+             </div>
+             </div>
+
+
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+             <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Less(TDS)
+               </h1>
+               <div className='lg:flex'>
+               <h1 className='lg:bg-red-500 lg:w-[58%] lg:flex lg:justify-center lg:items-center'>Get Rate</h1>
+               <input className='lg:w-[88%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+                 </div>
+             
+                <div className='lg:flex'>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[8%] '>
+               <h1>
+               Pay To Driver
+               </h1> 
+               <input className='lg:w-[90%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+            
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Freight
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+              </div>
+              </div>
+
+             </div>
+
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+             <div className='lg:flex'>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[2%] '>
+               <h1>
+              Balance A/c
+               </h1> 
+               <input className='lg:w-[80%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+            
+             <div className=' lg:flex:col  lg:w-[40%] '>
+               <h1>
+               Balance Hire
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+              </div>
+              </div>
+             
+                <div className='lg:flex'>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-[1%] '>
+               <h1>
+              Third Party Loading
+               </h1> 
+               <input className='lg:w-[90%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+            
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Third Party Loading A/C
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+              </div>
+              </div>
+
+             </div>
+
+
+
+
+
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+             <div className=' lg:flex:col  lg:w-[50%] lg:ml-2 '>
+               <h1>
+              Payment At
+               </h1>
+               <select className='lg:w-[92%] lg:border lg:border-2' >
+                <option>Select</option>
+                <option>Select</option>
+                <option>Select</option>
+              </select>
+
+             </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+               Payment Cnmt No.
+               </h1>
+               <input className='lg:w-[98%] lg:bg-gray-100 lg:border lg:border-2' />
+             </div>
+             </div>
+
+
+             
+             <div className='lg:flex lg:font-semibold lg:justify-between lg:mt-4 lg:ml-2 '>
+           <div className=' lg:ml-2 lg:flex:col lg:w-[45%]'>
+               <h1>
+               Cost Center
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             <button className='lg:bg-red-500 lg:px-2  lg:py-1'>N</button>
+             </div>
+                 </div>
+             
+ 
+             <div className=' lg:flex:col  lg:w-[50%] '>
+               <h1>
+              Balance Hire
+               </h1>
+               <div className='lg:flex'>
+               <input className='lg:w-[108%] lg:bg-gray-100 lg:border lg:border-2' />
+             <button className='lg:bg-red-500 lg:px-2  lg:py-1'>N</button>
+             </div>
+
+             </div>
+             </div>
+
+           </div>
+           </div>
+           
+     
+           <div className=' lg:border-bold lg:border-2 lg:mt-3 lg:w-[98.5%] lg:ml-[8px]'></div>
+           <div  className='lg:mt-[2%] lg:font-semibold lg:ml-[1%]' >
+               <h1>Remarks</h1>
+               <input className='lg:w-[99.5%] lg:border lg:border-2' />
+              </div>
+       
+        </div>
+        
+      </div>
+    </div>
+  );
+}
+
+export default VehicleHire;
