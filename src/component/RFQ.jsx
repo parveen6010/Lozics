@@ -8,6 +8,7 @@ function RFQ({ selectedRFQIndex, setSelectedRFQIndex, emailData, isLoading }) {
         <h3 className="text-lg text-white font-semibold">Received RFQ'S</h3>
       </div>
       <div className="bg-gray-700 h-[90%] flex items-center">
+        
         <div className="w-[75%] h-[85%] mx-auto my-auto bg-violet-100 flex flex-col rounded-lg p-5">
           <div className="flex justify-around h-[15%] w-[95%] mx-auto mt-5 bg-gray-500 items-center font-semibold rounded-xl text-xl text-white pr-4">
             <h3 className="w-1/6 flex justify-center items-center text-[1rem]">
@@ -18,6 +19,9 @@ function RFQ({ selectedRFQIndex, setSelectedRFQIndex, emailData, isLoading }) {
             </h3>
             <h3 className=" flex justify-center items-center text-[1rem]">
               RFQ Number
+            </h3>
+            <h3 className=" flex justify-center items-center text-[1rem]">
+              CSE Assigned
             </h3>
             <h3 className="w-1/6 flex justify-center items-center text-[1rem]">
               Quantity
@@ -65,6 +69,9 @@ function RFQ({ selectedRFQIndex, setSelectedRFQIndex, emailData, isLoading }) {
                     {item.RFQ}
                   </h3>
                 </Link>
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.cseassigned}
+                </h3>
                 <h3 className="w-1/6 flex justify-center items-center">
                   {item.quantity}
                 </h3>

@@ -302,12 +302,6 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                           </td>
                           {index === cnt - 1 && (
                             <td className="w-[10vw]  flex justify-center items-center">
-                              <button
-                                className="px-5 rounded-md bg-green-500 text-white"
-                                onClick={handleBid}
-                              >
-                                Bid
-                              </button>
                               {cnt < 5 && (
                                 <IoIosAddCircle
                                   className="text-green-700 text-2xl font-extrabold"
@@ -316,6 +310,16 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                               )}
                             </td>
                           )}
+                          { (index2==cntS-1 && index === cnt - 1) &&
+                              <td className="w-[10vw]  flex justify-start items-center">
+                              <button
+                                className="px-5 rounded-md bg-green-500 text-white"
+                                onClick={handleBid}
+                              >
+                                Bid
+                              </button>
+                              </td>
+                              }
                         </tr>
                       ))}
                     </tbody>
@@ -373,10 +377,16 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                       L1 Rate
                     </th>
                     <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
+                      Payment Terms
+                    </th>
+                    <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
                       Quotation to Submit
                     </th>
                     <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
-                      Privacy Terms
+                      Other Terms
+                    </th>
+                    <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
+                      Validity
                     </th>
                     <th className=" w-[70vw]  text-sm "></th>
                   </tr>
@@ -414,13 +424,6 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                       <td className="w-[30vw] border-black border-2 flex justify-center items-center">
                         {L1Rates[index2] | 0}
                       </td>
-                      <td className="w-[50vw] border-black border-2 flex justify-center">
-                        <input
-                          type="number"
-                          className="w-full outline-none"
-                          placeholder="Enter Quotation Amt."
-                        />
-                      </td>
                       <td className="w-[50vw] border-black border-2 flex justify-center items-center">
                         <select name="" id="">
                           <option value="Immediate">Immediate</option>
@@ -434,7 +437,29 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                           <option value="within 45 days">within 45 days</option>
                         </select>
                       </td>
+                      <td className="w-[50vw] border-black border-2 flex justify-center">
+                        <input
+                          type="number"
+                          className="w-full outline-none"
+                          placeholder="Enter Quotation Amt."
+                        />
+                      </td>
+                      <td className="w-[50vw] border-black border-2 flex justify-center">
+                        <input
+                          type="text"
+                          className="w-full outline-none"
+                          placeholder="Other Terms"
+                        />
+                      </td>
+                      <td className="w-[50vw] border-black border-2 flex justify-center">
+                        <input
+                          type="number"
+                          className="w-full outline-none"
+                          placeholder="Validity"
+                        />
+                      </td>
                       <td className="w-[70vw]  flex justify-center">
+                      {index2 == cntS - 1 && (
                         <Link to={"/"}>
                         <button
                           className="px-3 py-0.5 rounded-md bg-green-500 text-white"
@@ -443,6 +468,7 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                           Prepare Draft
                         </button>
                         </Link>
+                      )}
                       </td>
                     </tr>
                   ))}
