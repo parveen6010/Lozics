@@ -1,61 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function RFQ({ RFQData, setRFQData,selectedRFQIndex,setSelectedRFQIndex}) {
-  // useEffect(()=>{
-  //       let RFQNumber=["GF12X365" ,"TF23Z300","NF23Y300","UF23P300"]
-  //       setRFQData([...RFQData,RFQNumber]);
-  // },[])
-  useEffect(() => {
-    // This function generates a random email
-    const generateEmail = () => {
-      const chars = "abcdefghijklmnopqrstuvwxyz1234567890";
-      let email = "";
-      for (let i = 0; i < 10; i++) {
-        email += chars[Math.floor(Math.random() * chars.length)];
-      }
-      return email + "@example.com";
-    };
-
-    // This function generates a random date in the format YYYY-MM-DD
-    const generateDate = () => {
-      const date = new Date(
-        +new Date() - Math.floor(Math.random() * 10000000000)
-      );
-      return date.toISOString().slice(0, 10);
-    };
-    const generateRFQNumber = () => {
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let rfqNumber = "";
-      for (let i = 0; i < 10; i++) {
-        rfqNumber += chars[Math.floor(Math.random() * chars.length)];
-      }
-      return rfqNumber;
-    };
-
-    let newRFQData = [];
-
-    // Generate 5 random data entries
-    for (let i = 0; i < 5; i++) {
-      newRFQData.push({
-        date: generateDate(),
-        clientEmail: generateEmail(),
-        rfqNumber: generateRFQNumber(), // Random number between 0 and 9999
-        quantity: Math.floor(Math.random() * 100), // Random number between 0 and 99
-        action: Math.random() > 0.5 ? "Quoted" : "Unquoted", // Randomly either 'Buy' or 'Sell'
-        dateOfQuotation: generateDate(),
-        quotationStatus: Math.random() > 0.5 ? "Accepted" : "Pending", // Randomly either 'Accepted' or 'Pending'
-      });
-    }
-
-    // Update the RFQData state with the new array
-    setRFQData(newRFQData);
-  }, []);
-
-  const handleRFQClick=()=>{
-
-  }
-
+function RFQ({ selectedRFQIndex, setSelectedRFQIndex, emailData, isLoading }) {
   return (
     <div className="w-screen h-screen flex flex-col">
       <div className="w-screen h-[10%] bg-green-500 flex justify-center items-center">
@@ -89,39 +35,69 @@ function RFQ({ RFQData, setRFQData,selectedRFQIndex,setSelectedRFQIndex}) {
               Negotiation Status
             </h3>
           </div>
-          {RFQData.map((item, index) => (
-            <div
-              key={index}
-              className="flex justify-around h-[15%] w-[95%] mx-auto mt-5 bg-gray-300 items-center rounded-xl "
-            >
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.date}
-              </h3>
-              <h3 className={`${(item.action==="Unquoted")?"text-red-500 w-2/6 font-semibold  flex justify-center items-center" : "text-green-500 w-2/6 font-semibold  flex justify-center items-center"}`}>
-                {item.clientEmail}
-              </h3>
-              <Link to={"/Qmp"}>
-                <h3 className=" flex justify-center items-center" onClick={() => setSelectedRFQIndex(index)}>
-                  {item.rfqNumber}
+          {!isLoading ? (
+            emailData.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-around h-[15%] w-[95%] mx-auto mt-5 bg-gray-300 items-center rounded-xl "
+              >
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.DateOfRFQ}
                 </h3>
-              </Link>
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.quantity}
-              </h3>
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.action}
-              </h3>
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.dateOfQuotation}
-              </h3>
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.quotationStatus}
-              </h3>
-              <h3 className="w-1/6 flex justify-center items-center">
-                {item.quotationStatus}
-              </h3>
-            </div>
-          ))}
+                <h3
+                  className={`
+  w-2/6 font-semibold flex justify-center items-center 
+  ${
+    item.action === "awarded"
+      ? "text-green-500"
+      : item.action === "pending"
+      ? "text-blue-500"
+      : "text-yellow-500"
+  }`}
+                >
+                  {item.email}
+                </h3>
+                <Link to={"/Qmp"}>
+                  <h3
+                    className=" flex justify-center items-center"
+                    onClick={() => setSelectedRFQIndex(index)}
+                  >
+                    {item.RFQ}
+                  </h3>
+                </Link>
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.quantity}
+                </h3>
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.action}
+                </h3>
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.DateOfQuotation}
+                </h3>
+                <h3 className="w-1/6 flex justify-center items-center">
+                  {item.Quotation}
+                </h3>
+                {item.negotiation === "ongoing" ? (
+                  <Link to="/negotiation">
+                    <h3 className="w-1/6 flex justify-center items-center">
+                      {item.negotiation}
+                    </h3>
+                  </Link>
+                ) : ( item.negotiation==="completed"? 
+                <Link to={"/indentCreate"}>
+                  <h3 className="w-1/6 flex justify-center items-center">
+                    {item.negotiation}
+                  </h3>
+                  </Link>:<h3 className="w-1/6 flex justify-center items-center">
+                    {item.negotiation}
+                  </h3>
+                )}
+               
+              </div>
+            ))
+          ) : (
+            <div>Loading....</div>
+          )}
           {/* <div className="flex justify-around h-[15%] w-[95%] mx-auto mt-5 bg-gray-300 items-center rounded-xl">
             <h3 className="w-[14.285714286%] flex justify-center items-center">
               05-01-2024
