@@ -104,7 +104,7 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
     let currentDate = new Date();
     currentDate=currentDate.toDateString();
     emailData[selectedRFQIndex].negotiation="ongoing";
-    emailData[selectedRFQIndex].action="quoted";
+    emailData[selectedRFQIndex].action="In process";
     emailData[selectedRFQIndex].DateOfQuotation=currentDate;
   }
 
@@ -115,10 +115,20 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
     });
   };
 
+  const saveDraft=async()=>{
+    try {
+      let response=await fetch('http://localhost:5000/saveDraftApi');
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
   return (
 
         <div className={`w-screen h-screen flex flex-col ${(!vendorEl)?"":"justify-center items-center bg-black"}`}>
-        <div className={`h-[95%] w-[75%] flex flex-col justify-start items-center bg-white ${(!vendorEl)?"hidden":""}`}>
+        <div className={`h-[95%] w-[75%] flex flex-col justify-center items-center bg-white realtive top-[800px] ${(!vendorEl)?"hidden":""}`}>
           <h1 className="bg-green-500 w-full h-[10%] flex justify-center items-center font-bold text-xl text-white">This is vendor page</h1>
           <div className="w-full p-5">
             <div className="w-full flex justify-evenly">
@@ -252,7 +262,7 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                           V{index + 1} Details
                         </th>
                         <th className="w-[10vw] bg-green-400 border-black border-2 text-sm">
-                          V{index + 1} Name
+                          V{index + 1} Phone
                         </th>
                         <th className="w-[10vw] bg-green-400 border-black border-2 text-sm">
                           V{index + 1} Rate
@@ -361,7 +371,7 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                     <th className="w-[30vw] bg-green-400 border-black border-2 text-sm ">
                       To
                     </th>
-                    <th className="w-[30vw] bg-green-400 border-black border-2 text-sm ">
+                    <th className="w-[70vw] bg-green-400 border-black border-2 text-sm ">
                       Vehicle Type
                     </th>
                     <th className="w-[30vw] bg-green-400 border-black border-2 text-sm ">
@@ -376,10 +386,10 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                     <th className="bg-green-400 w-[30vw] border-black border-2 text-sm ">
                       L1 Rate
                     </th>
-                    <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
+                    <th className="bg-green-400 w-[70vw] border-black border-2 text-sm ">
                       Payment Terms
                     </th>
-                    <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
+                    <th className="bg-green-400 w-[70vw] border-black border-2 text-sm ">
                       Quotation to Submit
                     </th>
                     <th className="bg-green-400 w-[50vw] border-black border-2 text-sm ">
@@ -409,8 +419,8 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                       <td className="w-[30vw] border-black border-2 flex justify-center items-center">
                         To
                       </td>
-                      <td className="w-[30vw] border-black border-2 flex justify-center items-center">
-                        Vehicle
+                      <td className="w-[70vw] border-black border-2 flex justify-center items-center">
+                        Vehicle Type
                       </td>
                       <td className="w-[30vw] border-black border-2 flex justify-center items-center">
                         Dimension
@@ -424,20 +434,20 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                       <td className="w-[30vw] border-black border-2 flex justify-center items-center">
                         {L1Rates[index2] | 0}
                       </td>
-                      <td className="w-[50vw] border-black border-2 flex justify-center items-center">
+                      <td className="w-[70vw] border-black border-2 flex justify-center items-center">
                         <select name="" id="">
+                          <option value="Advance">Advance</option>
                           <option value="Immediate">Immediate</option>
-                          <option value="Within one day">Within one day</option>
                           <option value="within one week">
                             within one week
                           </option>
                           <option value="within 14 days">within 14 days</option>
-                          <option value="within 28 days">within 28 days</option>
-                          <option value="within 35 days">within 35 days</option>
+                          <option value="within 28 days">within 21 days</option>
+                          <option value="within 35 days">within 30 days</option>
                           <option value="within 45 days">within 45 days</option>
                         </select>
                       </td>
-                      <td className="w-[50vw] border-black border-2 flex justify-center">
+                      <td className="w-[70vw] border-black border-2 flex justify-center">
                         <input
                           type="number"
                           className="w-full outline-none"
@@ -463,7 +473,10 @@ export default function QueryMp({ emailData, selectedRFQIndex }) {
                         <Link to={"/"}>
                         <button
                           className="px-3 py-0.5 rounded-md bg-green-500 text-white"
-                          onClick={handleDraftClick}
+                          onClick={() => {
+                            saveDraft();
+                            handleDraftClick();
+                          }}
                         >
                           Prepare Draft
                         </button>

@@ -17,6 +17,7 @@ import VehicleHire from "./component/VehicleHire";
 import VehiclePlaced from "./component/VehiclePlacement";
 import IndentCreate from "./component/IndentCreate";
 import Tracking from "./component/Tracking";
+import EmailToPDFConverter from "./component/EmailToPdf";
 import { Route, Routes, Router } from "react-router-dom";
 import { useState,useEffect } from "react";
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/consignment" element={<Consignment />} />
           <Route path="/VehicleHire" element={<VehicleHire />} />
           <Route path="/VehiclePlaced" element={<VehiclePlaced />} />
+          <Route path="/EmailToPDFConverter" element={<EmailToPDFConverter />} />
         </Routes>
 
     </div>
